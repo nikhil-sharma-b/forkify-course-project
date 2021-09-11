@@ -2,7 +2,7 @@ import View from "./View.js";
 
 // import icons from "../img/icons.svg" //in parcel 1
 import icons from "url:../../img/icons.svg"; // in parcel 2
-import { Fraction } from "fractional";
+import { numberToFraction } from "../helpers.js";
 
 const RecipeView = class extends View {
   _parentElement = document.querySelector(".recipe");
@@ -132,7 +132,7 @@ const RecipeView = class extends View {
           <use href="${icons}#icon-check"></use>
         </svg>
         <div class="recipe__quantity">${
-          ing.quantity ? new Fraction(ing.quantity).toString() : ""
+          ing.quantity ? numberToFraction(ing.quantity).toString() : ""
         }</div>
         <div class="recipe__description">
           <span class="recipe__unit">${ing.unit}</span>
